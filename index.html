@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Learning Website</title>
+    <title>Simple Learn Website</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -23,6 +23,11 @@
             margin: 0 1em;
             text-decoration: none;
             cursor: pointer;
+            padding: 0.5em 1em;
+        }
+        nav a:hover {
+            background-color: #45a049;
+            border-radius: 4px;
         }
         main {
             padding: 2em;
@@ -33,6 +38,9 @@
             margin: 1em;
             padding: 1em;
             background-color: white;
+            display: inline-block;
+            width: 300px;
+            vertical-align: top;
         }
         .course h3 {
             margin-top: 0;
@@ -49,15 +57,41 @@
             color: white;
             text-align: center;
             padding: 1em 0;
-            position: fixed;
+            position: relative;
             width: 100%;
-            bottom: 0;
+        }
+        #search-bar {
+            margin-bottom: 1em;
+        }
+        #search-bar input {
+            padding: 0.5em;
+            width: 300px;
+            margin-right: 0.5em;
+        }
+        #search-bar button {
+            padding: 0.5em 1em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #search-bar button:hover {
+            background-color: #45a049;
+        }
+        .video-container {
+            margin: 2em 0;
+        }
+        iframe {
+            width: 100%;
+            max-width: 560px;
+            height: 315px;
+            border: none;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Simple Learning Website</h1>
+        <h1>Simple Learn</h1>
         <nav>
             <a onclick="showHome()">Home</a>
             <a onclick="showCourses()">Courses</a>
@@ -68,20 +102,28 @@
         <div id="home-section">
             <h2>Welcome to Simple Learning</h2>
             <p>Your journey to learning starts here. Choose a course to get started!</p>
+            <div id="search-bar">
+                <input type="text" placeholder="Search courses...">
+                <button>Search</button>
+            </div>
+            <div class="video-container">
+                <iframe width="656" height="369" src="https://www.youtube.com/embed/RIcC_iiE-O0" title="Overview of Google Analytics data collection (2:39)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
+            </div>
         </div>
         <div id="courses-section" style="display: none;">
             <h2>Courses</h2>
-            <div class="course" onclick="showCourseDetails('Introduction to Python', 'Learn the basics of Python programming with hands-on examples.', 'python.jpg')">
+            <div class="course" onclick="showCourseDetails('Introduction to Python', 'Learn the basics of Python programming with hands-on examples.', 'https://via.placeholder.com/300x200.png?text=Python+Course')">
                 <h3>Introduction to Python</h3>
                 <p>Learn the basics of Python programming with hands-on examples.</p>
                 <img src="Images\Python_course.jpg" alt="Introduction to Python">
             </div>
-            <div class="course" onclick="showCourseDetails('Web Development with HTML & CSS', 'Build beautiful and responsive websites using HTML and CSS.', 'webdev.jpg')">
+            <div class="course" onclick="showCourseDetails('Web Development with HTML & CSS', 'Build beautiful and responsive websites using HTML and CSS.', 'https://via.placeholder.com/300x200.png?text=Web+Development+Course')">
                 <h3>Web Development with HTML & CSS</h3>
                 <p>Build beautiful and responsive websites using HTML and CSS.</p>
                 <img src="Images\Web_dev_course.jpg" alt="Web Development">
             </div>
-            <div class="course" onclick="showCourseDetails('Data Analysis with Excel', 'Master data analysis techniques using Microsoft Excel.', 'excel.jpg')">
+            <div class="course" onclick="showCourseDetails('Data Analysis with Excel', 'Master data analysis techniques using Microsoft Excel.', 'https://via.placeholder.com/300x200.png?text=Data+Analysis+Course')">
                 <h3>Data Analysis with Excel</h3>
                 <p>Master data analysis techniques using Microsoft Excel.</p>
                 <img src="Images\data_analytics_course.jpg" alt="Data Analysis with Excel">
@@ -100,6 +142,7 @@
     </main>
     <footer>
         <p>Contact Us: info@simplelearning.com | Address: 123 Learning Lane, EduCity, EC 45678</p>
+        <p>&copy; 2024 Simple Learning. All rights reserved.</p>
     </footer>
     <script>
         function showHome() {
