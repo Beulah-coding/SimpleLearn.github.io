@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Learning Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        nav a {
+            color: white;
+            margin: 0 1em;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        main {
+            padding: 2em;
+            text-align: center;
+        }
+        .course {
+            border: 1px solid #ddd;
+            margin: 1em;
+            padding: 1em;
+            background-color: white;
+        }
+        .course h3 {
+            margin-top: 0;
+        }
+        .course p {
+            margin: 0.5em 0;
+        }
+        .course img {
+            width: 100%;
+            height: auto;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Simple Learning Website</h1>
+        <nav>
+            <a onclick="showHome()">Home</a>
+            <a onclick="showCourses()">Courses</a>
+            <a onclick="showMentorship()">Mentorship</a>
+        </nav>
+    </header>
+    <main id="main-content">
+        <div id="home-section">
+            <h2>Welcome to Simple Learning</h2>
+            <p>Your journey to learning starts here. Choose a course to get started!</p>
+        </div>
+        <div id="courses-section" style="display: none;">
+            <h2>Courses</h2>
+            <div class="course" onclick="showCourseDetails('Introduction to Python', 'Learn the basics of Python programming with hands-on examples.', 'python.jpg')">
+                <h3>Introduction to Python</h3>
+                <p>Learn the basics of Python programming with hands-on examples.</p>
+                <img src="Images\Python_course.jpg" alt="Introduction to Python">
+            </div>
+            <div class="course" onclick="showCourseDetails('Web Development with HTML & CSS', 'Build beautiful and responsive websites using HTML and CSS.', 'webdev.jpg')">
+                <h3>Web Development with HTML & CSS</h3>
+                <p>Build beautiful and responsive websites using HTML and CSS.</p>
+                <img src="Images\Web_dev_course.jpg" alt="Web Development">
+            </div>
+            <div class="course" onclick="showCourseDetails('Data Analysis with Excel', 'Master data analysis techniques using Microsoft Excel.', 'excel.jpg')">
+                <h3>Data Analysis with Excel</h3>
+                <p>Master data analysis techniques using Microsoft Excel.</p>
+                <img src="Images\data_analytics_course.jpg" alt="Data Analysis with Excel">
+            </div>
+        </div>
+        <div id="course-details-section" style="display: none;">
+            <h2 id="course-title">Course Title</h2>
+            <img id="course-image" src="" alt="Course Image" style="width: 300px; height: 200px;">
+            <p id="course-description">Course Description</p>
+            <button onclick="showCourses()">Back to Courses</button>
+        </div>
+        <div id="mentorship-section" style="display: none;">
+            <h2>Mentorship</h2>
+            <p>Our mentorship program connects you with experienced professionals to guide you in your learning journey.</p>
+        </div>
+    </main>
+    <footer>
+        <p>Contact Us: info@simplelearning.com | Address: 123 Learning Lane, EduCity, EC 45678</p>
+    </footer>
+    <script>
+        function showHome() {
+            document.getElementById('home-section').style.display = 'block';
+            document.getElementById('courses-section').style.display = 'none';
+            document.getElementById('course-details-section').style.display = 'none';
+            document.getElementById('mentorship-section').style.display = 'none';
+        }
+
+        function showCourses() {
+            document.getElementById('home-section').style.display = 'none';
+            document.getElementById('courses-section').style.display = 'block';
+            document.getElementById('course-details-section').style.display = 'none';
+            document.getElementById('mentorship-section').style.display = 'none';
+        }
+
+        function showCourseDetails(title, description, image) {
+            document.getElementById('home-section').style.display = 'none';
+            document.getElementById('courses-section').style.display = 'none';
+            document.getElementById('course-details-section').style.display = 'block';
+            document.getElementById('mentorship-section').style.display = 'none';
+            document.getElementById('course-title').textContent = title;
+            document.getElementById('course-description').textContent = description;
+            document.getElementById('course-image').src = image;
+        }
+
+        function showMentorship() {
+            document.getElementById('home-section').style.display = 'none';
+            document.getElementById('courses-section').style.display = 'none';
+            document.getElementById('course-details-section').style.display = 'none';
+            document.getElementById('mentorship-section').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
